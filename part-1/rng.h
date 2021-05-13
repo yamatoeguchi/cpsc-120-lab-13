@@ -59,7 +59,7 @@ class RandomNumberGenerator {
   /// \param minimum The lowest value the random number generator will return
   /// \param maximum The largest value the random number generator will return
   RandomNumberGenerator(double minimum, double maximum)
-      : seed{rd()}, mt_engine{rd()}, uniform_dist{minimum, maximum} {}
+      : seed{rd()}, mt_engine{rd()}, uniform_dist{minimum, maximum + 1} {}
 
   /// Return a random number
   ///

@@ -7,26 +7,31 @@
 
 #include "rng.h"
 
+
 void ErrorMessage(const std::string& message) {
   std::cout << message << "\n";
   std::cout << "There was an error. Exiting.\n";
 }
 
 void PrintVector(const std::vector<int>& the_vector) {
-  std::copy(the_vector.begin(), the_vector.end(),
+  std::copy(the_vector.begin(), the_vector.end(), 
             std::ostream_iterator<int>(std::cout, " "));
   std::cout << "\n";
 }
 
 void FillVector(std::vector<int>& the_vector, const int nelements, RandomNumberGenerator& random_number_generator) {
-  for(int i = 1; i <= nelements; i++){
+  generate(the_vector.begin(), the_vector.end(), [&random_number_generator]() {
+    return random_number_generator.next();
+  });
+  /*for(int i = 0; i <= nelements; i++){
     the_vector[i] = random_number_generator.next();
-  }
+  }*/
 }
 
 float CalculateAverage(const std::vector<int>& the_vector) {
   int sum = accumulate(the_vector.begin(), the_vector.end(), 0);
   float average = float(sum) / float(the_vector.size());
+  return average;
 }
 
 int CalculateMedian(const std::vector<int>& the_vector) {
@@ -39,6 +44,7 @@ int CalculateMedian(const std::vector<int>& the_vector) {
     ErrorMessage("Couldn't access the middle of the vector.");
     exit(1);
   }
+  return median;
 }
 
 int CalculateMode(const std::vector<int>& the_vector) {
@@ -61,4 +67,5 @@ int CalculateMode(const std::vector<int>& the_vector) {
       count = 1;
     }
   }
+  return mode;
 }

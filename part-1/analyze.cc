@@ -1,4 +1,3 @@
-
 #include <algorithm>
 #include <vector>
 #include <cstdlib>
@@ -30,6 +29,7 @@ int main(int argc, char* argv[]) {
   int minimum_number = 0;
   int maximum_number = 0;
   int number_elements = 0;
+
   try {
     minimum_number = stoi(argv_one_minimum);
   } catch (const exception& e) {
