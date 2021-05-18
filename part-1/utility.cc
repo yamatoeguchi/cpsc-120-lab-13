@@ -1,3 +1,13 @@
+// Yamato Eguchi
+// CPSC 120-01
+// 2021-05-17
+// yamatoe1227@csu.fullerton.edu
+// @yamatoeguchi
+//
+// Lab 13-01
+//
+// This is my utilize.cc
+//
 
 #include "utility"
 
